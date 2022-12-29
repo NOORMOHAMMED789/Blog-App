@@ -11,9 +11,9 @@ router.use(express.json());
 
 router.post("/register", async (req, res) => {
   try {
-    const users = await User.findOne({ email: req.body.email });
+    const user = await User.findOne({ email: req.body.email });
 
-    if (users) {
+    if (user) {
       return res.status(400).json({
         status: "Failed",
         message: "Account already exists",
